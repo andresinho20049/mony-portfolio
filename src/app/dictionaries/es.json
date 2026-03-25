@@ -139,7 +139,8 @@
   "lang_switcher": {
     "label": "Idioma",
     "pt_link": "Português",
-    "en_link": "English"
+    "en_link": "English",
+    "es_link": "Español"
   },
   "sections_details": {
     "infra": {

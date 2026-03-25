@@ -5,12 +5,13 @@ import { LinkLanguage } from '@/my-app/components/ui/link-language';
 import { getCurrentLanguage } from '@/my-app/hooks/use-languages';
 
 export type LanguageSwitcherPropsType = {
-  lang: 'pt' | 'en';
+  lang: 'pt' | 'en' | 'es';
   dictionary: {
     lang_switcher: {
       label: string;
       pt_link: string;
       en_link: string;
+      es_link: string;
     };
   };
 };
@@ -59,6 +60,12 @@ export default function LanguageSwitcher({
             lang='en'
             label={dictionary.lang_switcher.en_link}
             disabled={currentLang === 'en'}
+          />
+          <LinkLanguage
+            href={pathname}
+            lang='es'
+            label={dictionary.lang_switcher.es_link}
+            disabled={currentLang === 'es'}
           />
         </div>
       </div>

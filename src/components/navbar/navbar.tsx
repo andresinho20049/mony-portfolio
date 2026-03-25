@@ -21,6 +21,7 @@ export type NavBarPropsType = {
       label: string;
       pt_link: string;
       en_link: string;
+      es_link: string;
     };
   };
 };
