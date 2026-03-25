@@ -1,4 +1,4 @@
-export const availableLanguages = ['pt', 'en'] as const;
+export const availableLanguages = ['pt', 'en', 'es'] as const;
 
 export type LanguageType = (typeof availableLanguages)[number];
 
