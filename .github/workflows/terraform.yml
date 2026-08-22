@@ -39,7 +39,7 @@ jobs:
         if: steps.read-destroy-config.outputs.destroy != 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: '23'
+          node-version: '24'
 
       - name: Install Next.js dependencies
         if: steps.read-destroy-config.outputs.destroy != 'true'
