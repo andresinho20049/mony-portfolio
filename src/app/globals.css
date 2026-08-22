@@ -2,31 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --radius: 0.75rem;
+
+  /* PALETA HARMONIA DE ROSA & NEUTROS MODERNOS (LIGHT) */
+  /* Fundo creme/nude suave e fosco */
+  --background: #faf7f5;
+  /* Texto principal em carvão/grafite profundo (substitui preto puro) */
+  --foreground: #1c181a;
+  --ink: #121011;
+
+  /* Cartões em tom off-white puro */
+  --card: #ffffff;
+  --card-foreground: #1c181a;
+
+  --popover: #ffffff;
+  --popover-foreground: #1c181a;
+
+  /* COR PRIMÁRIA: Rosa Quartzo Vibrante/Elegante */
+  --primary: #dd8ebc;
+  --primary-foreground: #ffffff;
+
+  /* COR SECUNDÁRIA: Nude Terroso Suave */
+  --secondary: #f3e9e3;
+  --secondary-foreground: #2d2429;
+
+  /* ELEMENTOS MUTE: Cinza Aveludado */
+  --muted: #f0e6eb;
+  --muted-foreground: #6b5c65;
+
+  /* ACCENT: Rosa Vinho Profundo / Rosé Antigo */
+  --accent: #b86b98;
+  --accent-foreground: #ffffff;
+
+  --destructive: #d93838;
+  --destructive-foreground: #ffffff;
+
+  /* BORDAS & ANÉIS: Tons suaves de transição */
+  --border: #e8d9e1;
+  --input: #e8d9e1;
+  --ring: #dd8ebc;
+
+  /* Tons Pastéis Complementares para Gradientes */
+  --nude: #f7ebe1;
+  --rose-soft: #f2c0d8;
+  --blue-soft: #e2e5f8;
+
+  --gradient-pastel: linear-gradient(
+    135deg,
+    var(--nude) 0%,
+    var(--rose-soft) 50%,
+    var(--blue-soft) 100%
+  );
+
+  --shadow-soft: 0 20px 50px -25px rgba(28, 24, 26, 0.12);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Karla', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  /* PALETA PRETO IMPONENTE COM DESTAQUES EM ROSA (DARK) */
+  /* Fundo Preto Carvão Profundo */
+  --background: #121011;
+  --foreground: #f7f3f5;
+  --ink: #f7f3f5;
+
+  /* Cartões em Grafite Escuro */
+  --card: #1c181a;
+  --card-foreground: #f7f3f5;
+
+  --popover: #1c181a;
+  --popover-foreground: #f7f3f5;
+
+  /* COR PRIMÁRIA DARK: Rosa Iluminado (mantém identidade) */
+  --primary: #e6a1c9;
+  --primary-foreground: #121011;
+
+  /* SECUNDÁRIA DARK: Tom Rosé/Carvão fechado */
+  --secondary: #282025;
+  --secondary-foreground: #f7f3f5;
+
+  --muted: #231b20;
+  --muted-foreground: #b3a1ac;
+
+  /* ACCENT DARK: Rosa Glamour Pastel */
+  --accent: #e083b8;
+  --accent-foreground: #121011;
+
+  --border: rgba(230, 161, 201, 0.18);
+  --input: rgba(230, 161, 201, 0.2);
+  --ring: #e6a1c9;
+
+  --nude: #2d2228;
+  --rose-soft: #4a283b;
+  --blue-soft: #1d2238;
+
+  --shadow-soft: 0 20px 50px -25px rgba(0, 0, 0, 0.6);
+}
+
 @layer base {
+  * {
+    border-color: var(--border);
+  }
+
   body {
-    @apply bg-main-light dark:bg-main-dark;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+
   h1 {
-    @apply bg-gradient-to-tr from-primary to-accent bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent lg:text-6xl;
+    font-family: var(--font-display);
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-center text-4xl font-normal tracking-tight text-transparent lg:text-6xl;
   }
+
   h2 {
-    @apply text-balance text-center text-3xl font-semibold tracking-normal text-alternativeLight dark:text-alternativeDark lg:text-5xl;
+    font-family: var(--font-display);
+    @apply text-balance text-left text-3xl font-light tracking-normal text-foreground lg:text-5xl;
   }
+
   h3 {
-    @apply text-balance text-start text-xl font-medium tracking-normal text-commonLight underline dark:text-commonDark lg:text-2xl;
+    font-family: var(--font-display);
+    @apply text-balance text-start text-xl font-medium tracking-normal text-foreground underline decoration-rose-soft underline-offset-4 lg:text-2xl;
   }
+
   p {
-    @apply whitespace-pre-line text-balance text-justify text-base/relaxed font-normal tracking-normal text-commonLight dark:text-commonDark;
+    @apply whitespace-pre-line text-balance text-justify text-base/relaxed font-normal tracking-normal text-muted-foreground;
   }
+
   span {
-    @apply text-base/relaxed font-light tracking-normal text-commonLight dark:text-commonDark;
+    @apply text-base/relaxed font-light tracking-normal text-muted-foreground;
   }
+
   strong {
     @apply text-base/loose font-semibold tracking-wider text-primary;
   }
+
   a {
-    @apply select-none text-base/normal font-medium tracking-normal text-accent no-underline decoration-accent hover:text-primary hover:underline dark:text-accent;
+    @apply select-none text-base/normal font-medium tracking-normal text-primary no-underline decoration-rose-soft underline-offset-4 transition-colors hover:text-accent hover:underline;
   }
+
   section {
     @apply px-4;
   }
@@ -34,15 +151,15 @@
 
 @layer components {
   .caption {
-    @apply my-3 text-sm font-bold uppercase tracking-widest text-disableLight dark:text-disableDark;
+    @apply my-3 text-xs font-semibold uppercase tracking-[0.25em];
   }
 
   .primary-button {
-    @apply inline-block w-auto min-w-48 select-none rounded-md border-4 border-x-primaryDisable border-y-primary bg-primary px-6 py-4 text-center text-commonDark no-underline transition-all hover:-translate-y-px hover:border-y-primaryDisable hover:text-primaryDisable hover:no-underline dark:border-x-primaryDisable dark:border-y-primary dark:bg-primaryDark dark:text-commonDark dark:no-underline dark:hover:border-y-primaryDisable dark:hover:text-primaryDisable dark:hover:no-underline;
+    @apply inline-flex min-w-48 select-none items-center justify-center rounded-full border border-primary bg-primary px-7 py-3.5 text-center text-sm font-medium tracking-wide text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-accent-foreground hover:shadow-lg;
   }
 
   .secondary-button {
-    @apply inline-block w-auto min-w-48 select-none rounded-md border border-alternativeLight bg-alternativeDark bg-transparent px-6 py-4 text-center text-alternativeLight no-underline shadow-sm shadow-commonLight transition-all hover:border-commonLight hover:bg-commonDark hover:text-commonLight hover:no-underline hover:shadow-md hover:shadow-alternativeLight dark:border-alternativeDark dark:bg-commonLight dark:text-alternativeDark dark:shadow-sm dark:shadow-commonDark dark:hover:border-commonDark dark:hover:bg-alternativeLight dark:hover:text-commonDark dark:hover:shadow-md dark:hover:shadow-alternativeDark;
+    @apply inline-flex min-w-48 select-none items-center justify-center rounded-full border border-border bg-background px-7 py-3.5 text-center text-sm font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-secondary hover:shadow-md;
   }
 
   .card-button {
@@ -54,11 +171,11 @@
   }
 
   .title-section p {
-    @apply max-w-7xl text-balance pb-8 text-center text-lg/relaxed font-normal tracking-normal text-commonLight dark:text-commonDark;
+    @apply max-w-7xl text-balance pb-8 text-center text-lg/relaxed font-normal tracking-normal text-muted-foreground;
   }
 
   .title-section span {
-    @apply text-lg/relaxed font-light tracking-normal text-commonLight underline decoration-accent hover:text-accent hover:underline dark:text-commonDark;
+    @apply text-lg/relaxed font-light tracking-normal text-foreground underline decoration-rose-soft hover:text-accent hover:underline;
   }
 
   .title-section strong {
@@ -66,19 +183,37 @@
   }
 
   .inverter-bg {
-    @apply bg-second-light dark:bg-second-dark;
+    @apply bg-secondary;
   }
 
   .resume p {
-    @apply max-w-7xl text-base/relaxed font-normal tracking-normal text-commonLight dark:text-commonDark;
+    @apply max-w-7xl text-base/relaxed font-normal tracking-normal text-muted-foreground;
   }
 
   .resume span {
-    @apply text-base/relaxed font-light tracking-normal text-commonLight underline decoration-accent hover:text-accent hover:underline dark:text-commonDark;
+    @apply text-base/relaxed font-light tracking-normal text-foreground underline decoration-rose-soft hover:text-accent hover:underline;
   }
 }
 
 @layer utilities {
+  .surface-pastel {
+    background-image: var(--gradient-pastel);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .rule-line::before {
+    content: '';
+    display: block;
+    width: 3.5rem;
+    height: 1px;
+    background-color: var(--primary);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

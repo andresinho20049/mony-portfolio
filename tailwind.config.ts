@@ -1,22 +1,4 @@
 import type { Config } from 'tailwindcss';
-import defaultColors from 'tailwindcss/colors';
-
-const customColors = {
-  ...defaultColors,
-  ...{
-    primary: defaultColors.blue[700],
-    primaryDark: defaultColors.blue[950],
-    second: defaultColors.purple[800],
-    accent: defaultColors.cyan[500],
-    commonLight: defaultColors.stone[900],
-    commonDark: defaultColors.stone[100],
-    alternativeLight: defaultColors.stone[600],
-    alternativeDark: defaultColors.stone[500],
-    primaryDisable: defaultColors.blue[300],
-    disableLight: defaultColors.gray[400],
-    disableDark: defaultColors.gray[600],
-  },
-};
 
 const config: Config = {
   content: [
@@ -26,29 +8,73 @@ const config: Config = {
   ],
   darkMode: ['class'],
   theme: {
-    colors: customColors,
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        /* Estrutura principal */
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        ink: 'var(--ink)',
+
+        /* Superfícies */
+        card: {
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
+        },
+        popover: {
+          DEFAULT: 'var(--popover)',
+          foreground: 'var(--popover-foreground)',
+        },
+
+        /* Cor Primária (Preto/Grafite Sofisticado) */
+        primary: {
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
+        },
+
+        /* Cor Secundária (Nude/Pastel Terroso) */
+        secondary: {
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
+        },
+
+        /* Elementos Neutros/Suaves */
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
+
+        /* Destaque / Accent (Rosa Quartzo) */
+        accent: {
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-foreground)',
+        },
+
+        /* Estados e Bordas */
+        destructive: {
+          DEFAULT: 'var(--destructive)',
+          foreground: 'var(--destructive-foreground)',
+        },
+        border: 'var(--border)',
+        input: 'var(--input)',
+        ring: 'var(--ring)',
+
+        /* Cores Pastéis Específicas do Tema Feminino */
+        nude: 'var(--nude)',
+        'rose-soft': 'var(--rose-soft)',
+        'blue-soft': 'var(--blue-soft)',
       },
-      backgroundColor: {
-        'main-dark': customColors.black,
-        'main-light': customColors.stone[200],
-        'second-dark': customColors.stone[900],
-        'second-light': customColors.stone[300],
-        'card-bg': customColors.gray[50],
-        'card-bg-dark': customColors.slate[800],
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
-      fill: {
-        'main-dark': customColors.black,
-        'main-light': customColors.stone[200],
-        'second-dark': customColors.stone[900],
-        'second-light': customColors.stone[300],
+      fontFamily: {
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },
   plugins: [require('@tailwindcss/typography')],
 };
+
 export default config;

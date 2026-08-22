@@ -1,93 +1,124 @@
-# Hands-On Project: Terraform with AWS for the SAA-C03 Certification
+# 🌸 Portfólio Profissional — Monique Martins
 
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](/README.pt-br.md)
+> _"Conectando pessoas, oferecendo suporte e entregando excelência — seja na linha de frente do atendimento ou à mesa, com comida que aconchega."_
 
-This repository is a practical, hands-on project created to serve as a study guide and a demonstration of knowledge for the **AWS Solutions Architect - Associate (SAA-C03) Certification**. The focus is on infrastructure as code (IaC) automation using **Terraform** to provision a modern and scalable architecture on AWS.
+Este repositório contém o código-fonte do portfólio web profissional de **Monique da Silva Martins**. Desenvolvido com uma abordagem moderna, imponente e sensível, o projeto combina a sobriedade do preto com a delicadeza de tons pastéis e harmonias de rosa, apresentando de forma autêntica tanto a atuação corporativa em **Atendimento ao Cliente & Recepção** quanto a essência e paixão pela **Gastronomia**.
 
-### 📚 Project Purpose
+---
 
-The main goal of this project is to solidify theoretical knowledge from the AWS SAA-C03 certification through practical application. Instead of using the AWS console to provision resources, the entire infrastructure is managed by Terraform.
+## 📸 Prévia do Projeto
 
-This project demonstrates:
+| Seção                         | Descrição                                                                                     |
+| :---------------------------- | :-------------------------------------------------------------------------------------------- |
+| **Hero & Apresentação**       | Destaque imponente com fotografia profissional, proposta de valor e CTA direto para WhatsApp. |
+| **Perfis Interativos (Tabs)** | Divisão clara entre o perfil técnico corporativo e o perfil afetivo "Paixão por Comida".      |
+| **Trajetória & Competências** | Seção unificada de experiências com _badge pills_ de skills técnicas e operacionais.          |
+| **Galeria & Essência**        | Blocos visuais destacando os momentos em família, o dom culinário e os sonhos de futuro.      |
 
-- **Infrastructure as Code (IaC):** The use of Terraform to define and provision resources in a declarative and repeatable manner.
-- **AWS Best Practices:** Configuring a secure, low-cost architecture to host a static website.
-- **CI/CD Automation:** The use of GitHub Actions to create a continuous delivery pipeline, automating the build and deployment of the application.
+---
 
-### 🚀 Solution Architecture
+## 🛠️ Tecnologias Utilizadas
 
-The architecture provisioned by Terraform is robust and uses managed AWS services to ensure high availability, scalability, and performance.
+- **[Next.js 14+](https://nextjs.org/)** — App Router, Server Components (SSG por padrão para alta performance de SEO) e renderização híbrida.
+- **[React 18+](https://react.dev/)** — Construção da interface baseada em componentes reutilizáveis.
+- **[TypeScript](https://www.typescriptlang.org/)** — Tipagem estática rigorosa para garantir consistência de dados e manutenção.
+- **[Tailwind CSS v3.4](https://tailwindcss.com/)** — Estilização utilitária refinada com classes customizadas e suporte nativo a temas.
+- **[OKLCH / HEX Color Systems]** — Paleta de cores moderna com harmonia de tons pastéis terrosos, rosa quartzo e preto carvão com suporte a Light & Dark Mode.
+- **[@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)** — Formatação elegante para textos e conteúdos longos.
 
-- **Amazon S3 (Simple Storage Service):** The S3 bucket is the central point for static website storage. It is configured with the _Static Website Hosting_ option enabled.
-- **Amazon CloudFront:** Acting as a content delivery network (CDN), CloudFront distributes content from S3 globally, reducing latency for users. It also adds a layer of security and caching, optimizing page load times.
-- **GitHub Actions:** The CI/CD pipeline on GitHub automates the Next.js project's build process and the deployment of static files to the S3 bucket, ensuring the website is always up-to-date with the latest code version.
+---
 
-![Diagram](/public/diagram/terraform-aws-saa-c03-hands-on-app-Page-7.drawio.svg)
+## 🎨 Identidade Visual & Design System
 
-### 💻 Technologies Used
+A identidade foi projetada sob medida para refletir a personalidade da Monique: **profissionalismo ético aliado a um acolhimento humano ("gente da gente")**.
 
-- **Terraform:** IaC tool for provisioning and managing infrastructure on AWS.
-- **AWS:** Cloud service provider.
-- **Next.js (with App Router):** React.js framework used to build the static application, which will be generated with `output: 'export'`.
-- **Node.js:** Runtime environment for the Next.js project build.
-- **GitHub Actions:** CI/CD service for workflow automation.
+- **Paleta de Cores:**
+  - `Primary` (`#dd8ebc` / `#e6a1c9`): Rosa Quartzo vibrante e elegante.
+  - `Secondary` (`#f3e9e3` / `#282025`): Nude terroso aveludado.
+  - `Background` (`#faf7f5` / `#121011`): Transição entre o creme fosco e o preto carvão profundo.
+  - `Accent` (`#b86b98` / `#e083b8`): Rosé antigo para destaques e estados interativos.
+- **Tipografia:**
+  - _Display_: **Cormorant Garamond** (serifada, imponente e sofisticada para títulos).
+  - _Sans_: **Karla** (clean, altamente legível e moderna para corpo de texto e UI).
 
-### ⚙️ How the Automation Works
+---
 
-This project optimizes the deployment of your infrastructure and static website on AWS through an automated **CI/CD** pipeline. Here’s how it works:
+## 📂 Estrutura do Repositório
 
-1.  **Infrastructure Development:** You define or update your AWS infrastructure using **Terraform** in the `.tf` files located in the `infra/` directory of the repository.
-2.  **Commit and Push:** When you make a `git commit` and `git push` to the remote repository, the GitHub Actions pipeline is automatically triggered.
-3.  **GitHub Actions Pipeline Execution:**
-    - The workflow starts by **checking out** your code.
-    - It assumes a specific **IAM Role** in your AWS account, ensuring secure access via **OIDC**.
-    - It runs `terraform init`, which configures the **S3 backend** for **statefile** storage and the **DynamoDB table** for **state locking**, preventing conflicts.
-    - It performs `terraform plan` to generate and display a summary of the proposed changes to your infrastructure.
-    - It executes `terraform apply --auto-approve` to apply these changes, provisioning or updating resources on AWS.
-    - **Next.js Build:** The pipeline installs Node.js dependencies and runs the `npm run build` command for Next.js.
-    - **Content Upload:** After the build, the static files from the `src/out/` directory are synced to the **S3 bucket** using `aws s3 sync --delete`, ensuring your site is always updated and accessible.
-4.  **Updated Infrastructure and Website:** Your AWS infrastructure is provisioned or updated according to the Terraform configurations, and your static website becomes immediately available.
+```bash
+mony-portfolio/
+├── public/
+│   └── photos/              # Ativos de imagem (Retratos, Galeria Gastronômica e Pessoal)
+├── src/
+│   ├── app/
+│   │   ├── globals.css      # Design System, variáveis CSS, temas e utility classes
+│   │   ├── layout.tsx       # Root Layout com configurações globais de Metadata/SEO
+│   │   └── page.tsx         # Página principal estática (SSG)
+│   ├── components/
+│   │   ├── perfil-tabs.tsx  # Componente interativo (Client Side) para alternância de perfil
+│   │   ├── photo/           # Componente estruturado para exibição e efeito de imagens
+│   │   └── sections/        # Sub-seções modulares (Experiência e Formação)
+│   └── data/                # Datasets tipados para experiências, skills e formações
+├── tailwind.config.ts       # Mapeamento do Tailwind estendido com tokens do projeto
+├── tsconfig.json            # Configurações do compilador TypeScript
+└── package.json             # Dependências e scripts do projeto
 
-![Diagram](/public/diagram/terraform-aws-saa-c03-hands-on-app-Page-1.drawio.svg)
+```
 
-### 🎯 How to Run
+## 💼 Destaques da Copywriting & Estrutura
 
-This project uses **Terraform** to provision infrastructure and **GitHub Actions** for CI/CD automation, ensuring a static site deployment on AWS. Follow the steps below to configure and run it in your environment:
+1. **Abordagem Dupla Estratégica:**
 
-#### 1. AWS Prerequisites
+- **Atendimento Corporativo:** Foco na ética, agilidade em ambientes de alto fluxo (rede Giraffas), gestão de caixa e acolhimento receptivo.
+- **Gastronomia & Afeto:** Foco na vivência prática de cozinha comercial (Padaria Peg Pão), versatilidade entre pratos doces/salgados e a vocação do servir.
 
-Before you begin, ensure your AWS account is configured with the following resources:
+2. **Scannability para RH & Recrutadores:**
 
-- **OIDC Provider for GitHub Actions:** Configure an identity provider (OIDC) in AWS IAM to allow GitHub Actions to securely assume an **IAM Role**. For a detailed guide, consult the official AWS documentation: [Use IAM roles to connect GitHub Actions to actions in AWS](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/).
-- **Dedicated IAM Role:** Create a specific IAM Role for GitHub Actions. It will need the **necessary permission policies** to manage all your infrastructure resources, including:
-  - **S3:** Create and configure buckets, manage objects.
-  - **DynamoDB:** Create and access lock tables for Terraform.
-  - **CloudFront:** Create, configure, and manage distributions, OACs (Origin Access Controls), and cache policies.
-- **S3 Bucket for Statefile:** Have an S3 bucket pre-created and dedicated to storing your **Terraform Statefile**. This bucket is crucial for managing your infrastructure's state and should have **versioning enabled** to allow for rollbacks.
-- **DynamoDB Table for State Locking:** Create a table in DynamoDB to be used as a **state locking** mechanism by Terraform. This prevents multiple Terraform runs from corrupting the `statefile` in collaborative environments. The table must have a **Partition Key** named `LockID` of type `String`.
+- Apresentação de competências-chave agrupadas em _badges_ ao final de cada experiência profissional.
 
-#### 2. GitHub Repository Configuration
+3. **Conexão Pessoal e Ambições de Futuro:**
 
-After configuring your AWS account, you'll need to set up secrets in your GitHub repository so the GitHub Actions pipeline can interact with AWS.
+- Seção autêntica dedicada à família e ao objetivo profissional de ingressar na faculdade de **Podologia Infantil**.
 
-Navegue até **Settings** > **Secrets and variables** > **Actions** no seu repositório GitHub e adicione as seguintes secrets:
+---
 
-- `AWS_ROLE_ARN`: The ARN of the IAM Role that GitHub Actions will assume (e.g., `arn:aws:iam::123456789012:role/github-actions-role`).
-- `AWS_STATEFILE_S3_BUCKET`: The name of the S3 bucket where your Terraform Statefile will be stored.
-- `AWS_LOCK_DYNAMODB_TABLE`: The name of the DynamoDB table configured for Terraform state locking.
+## 🚀 Como Executar o Projeto Localmente
 
-#### 3. Follow the Pipeline
+### Pré-requisitos
 
-After `git push`, the GitHub Actions pipeline will execute automatically. You can monitor its progress in the **Actions** tab of your GitHub repository. The pipeline will provision or update the AWS infrastructure and then upload your static site files to the configured S3 bucket.
+- **Node.js** (v18.17.0 ou superior)
+- Gerenciador de pacotes **npm**, **yarn** ou **pnpm**
 
-### ©️ Copyright
+### Passo a Passo
 
-**Developed by** [Andresinho20049](https://andresinho20049.com.br/)
-**Project:** _terraform-aws-saa-c03-hands-on-app_
+1. **Clone o repositório:**
 
-**Description:**
-This project is a practical demonstration for the AWS Solutions Architect - Associate (SAA-C03) certification, focusing on implementing a **serverless** architecture. It uses Terraform to provision and manage a static website on AWS, leveraging services like S3 and CloudFront that ensure high scalability and low cost without the need to manage servers.
+```bash
+git clone [https://github.com/seu-usuario/mony-portfolio.git](https://github.com/seu-usuario/mony-portfolio.git)
+cd mony-portfolio
 
-This project complements another portfolio work available at [https://github.com/andresinho20049/terraform-aws-with-autoscaling-course](https://github.com/andresinho20049/terraform-aws-with-autoscaling-course). While this project covers serverless solutions, the other focuses on **provisioned** architectures, using services like **VPC, EC2, and Application Load Balancer** to demonstrate the design of larger, more complex solutions with high availability.
+```
 
-Together, the two projects showcase a comprehensive understanding of foundational AWS architectures. They serve as a set of practical studies that validate the knowledge of creating and implementing robust systems, covering both serverless and provisioned models, which is essential for any solutions architect.
+2. **Instale as dependências:**
+
+```bash
+npm install
+
+```
+
+3. **Inicie o servidor de desenvolvimento:**
+
+```bash
+npm run dev
+
+```
+
+4. **Acesse no navegador:**
+   Abra [http://localhost:3000](http://localhost:3000) para visualizar a aplicação em execução.
+5. **Gerar Build de Produção:**
+
+```bash
+npm run build
+npm run start
+
+```
