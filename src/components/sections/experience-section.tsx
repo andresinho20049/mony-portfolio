@@ -1,12 +1,12 @@
 type Experiencia = {
-  periodo: string
-  cargo: string
-  empresa: string
-  descricao: string
-  pontos: string[]
-  skills: string[]
-  categoria: 'Atendimento & Operação' | 'Gastronomia & Produção'
-}
+  periodo: string;
+  cargo: string;
+  empresa: string;
+  descricao: string;
+  pontos: string[];
+  skills: string[];
+  categoria: 'Atendimento & Operação' | 'Gastronomia & Produção';
+};
 
 const experiencias: Experiencia[] = [
   {
@@ -32,7 +32,8 @@ const experiencias: Experiencia[] = [
   {
     periodo: '2016 — 2020',
     cargo: 'Operadora de Caixa & Multifuncional',
-    empresa: 'Kalles Comércios de Multialimentos LTDA (Giraffas - Hipermercado Extra Taboão)',
+    empresa:
+      'Kalles Comércios de Multialimentos LTDA (Giraffas - Hipermercado Extra Taboão)',
     categoria: 'Atendimento & Operação',
     descricao:
       'Jornada de 4 anos enfrentando o desafio diário de alto fluxo de clientes em praça de alimentação de hipermercado, desenvolvendo dinamismo, constância e domínio de processos.',
@@ -50,60 +51,64 @@ const experiencias: Experiencia[] = [
       'Consistência & Processos',
     ],
   },
-]
+];
 
 export function ExperienceSection() {
   return (
-    <section id="experiencia" className="mx-auto max-w-6xl py-20 md:py-28">
-      <div className="rule-line mb-10">
+    <section id='experiencia' className='mx-auto max-w-6xl py-20 md:py-28'>
+      <div className='rule-line mb-10'>
         <h2>Trajetória, Versatilidade & Processos</h2>
-        <div className="mt-4 space-y-3 max-w-3xl">
-          <p className="italic font-medium">
-            "Servir bem é uma questão de atitude; alimentar bem é uma vocação de afeto."
+        <div className='mt-4 max-w-3xl space-y-3'>
+          <p className='font-medium italic'>
+            "Servir bem é uma questão de atitude; alimentar bem é uma vocação de
+            afeto."
           </p>
           <p>
-            Minha trajetória combina a disciplina de quem encara o alto fluxo com sorriso no rosto
-            e a sensibilidade de quem transforma ingredientes em momentos de união. Seja
-            gerenciando processos com precisão ou temperando a vida com sabor, entrego sempre o
-            meu melhor.
+            Minha trajetória combina a disciplina de quem encara o alto fluxo
+            com sorriso no rosto e a sensibilidade de quem transforma
+            ingredientes em momentos de união. Seja gerenciando processos com
+            precisão ou temperando a vida com sabor, entrego sempre o meu
+            melhor.
           </p>
         </div>
       </div>
 
-      <div className="mt-12 space-y-8">
+      <div className='mt-12 space-y-8'>
         {experiencias.map((exp) => (
           <article
             key={`${exp.cargo}-${exp.empresa}`}
-            className="group relative grid gap-6 rounded-2xl border border-border bg-card p-8 transition-all hover:border-border/80 hover:shadow-lg md:grid-cols-[180px_1fr]"
+            className='hover:border-border/80 group relative grid gap-6 rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-lg md:grid-cols-[180px_1fr]'
           >
-            <div className="flex flex-col justify-between gap-2 border-b border-border/50 pb-4 md:border-b-0 md:pb-0">
-              <span className="caption my-0">{exp.periodo}</span>
-              <span className="inline-self-start rounded-full bg-secondary px-3 py-1 text-xs font-medium text-foreground md:mt-2">
+            <div className='border-border/50 flex flex-col justify-between gap-2 border-b pb-4 md:border-b-0 md:pb-0'>
+              <span className='caption my-0'>{exp.periodo}</span>
+              <span className='inline-self-start rounded-full bg-secondary px-3 py-1 text-xs font-medium text-foreground md:mt-2'>
                 {exp.categoria}
               </span>
             </div>
 
             <div>
               <h3>{exp.cargo}</h3>
-              <p className="mt-1 text-sm font-medium">{exp.empresa}</p>
-              <p className="mt-4 text-sm italic font-normal">"{exp.descricao}"</p>
+              <p className='mt-1 text-sm font-medium'>{exp.empresa}</p>
+              <p className='mt-4 text-sm font-normal italic'>
+                "{exp.descricao}"
+              </p>
 
-              <ul className="mt-5 space-y-2.5 text-sm">
+              <ul className='mt-5 space-y-2.5 text-sm'>
                 {exp.pontos.map((ponto, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-soft" />
+                  <li key={idx} className='flex items-start gap-3'>
+                    <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-soft' />
                     <span>{ponto}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 border-t border-border/40 pt-4">
-                <span className="caption">Skills & Competências Chave:</span>
-                <div className="mt-3 flex flex-wrap gap-2">
+              <div className='border-border/40 mt-6 border-t pt-4'>
+                <span className='caption'>Skills & Competências Chave:</span>
+                <div className='mt-3 flex flex-wrap gap-2'>
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent"
+                      className='rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium transition-colors hover:bg-accent'
                     >
                       {skill}
                     </span>
@@ -115,5 +120,5 @@ export function ExperienceSection() {
         ))}
       </div>
     </section>
-  )
+  );
 }
