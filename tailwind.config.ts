@@ -19,6 +19,7 @@ const config: Config = {
         card: {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
+          secondary: 'var(--card-secondary)',
         },
         popover: {
           DEFAULT: 'var(--popover)',
