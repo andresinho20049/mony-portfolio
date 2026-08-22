@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 const perfilTabs = [
-  { id: 'profissional', label: 'Perfil Profissional' },
-  { id: 'gastronomia', label: 'Paixão por Comida' },
+  { id: 'profissional', label: 'Postura Profissional & Liderança' },
+  { id: 'gastronomia', label: 'Cozinha, Ritmo & Excelência' },
 ] as const;
 
 type TabId = (typeof perfilTabs)[number]['id'];
@@ -16,15 +16,15 @@ export function PerfilTabs() {
     <div className='mt-12'>
       {/* Controles das Tabs */}
       <div className='flex justify-center'>
-        <div className='inline-flex rounded-full border border-border bg-muted p-1.5'>
+        <div className='inline-flex rounded-full border border-border bg-muted p-1.5 shadow-inner'>
           {perfilTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={
-                'rounded-full px-6 py-3 text-sm font-medium transition-all ' +
+                'rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 ' +
                 (activeTab === tab.id
-                  ? 'bg-ink text-primary shadow-sm'
+                  ? 'bg-ink text-primary-foreground shadow-md'
                   : 'text-muted-foreground hover:text-foreground')
               }
               aria-pressed={activeTab === tab.id}
@@ -37,42 +37,70 @@ export function PerfilTabs() {
 
       {/* Conteúdo Tab Profissional */}
       {activeTab === 'profissional' && (
-        <div className='mt-14 grid gap-14 md:grid-cols-[0.9fr_1.1fr] md:items-start'>
-          <div className='surface-pastel rounded-3xl p-8'>
-            <span className='caption text-ink/60'>Perfil Profissional</span>
-            <ul className='mt-6 space-y-4 text-ink'>
-              <li className='border-ink/10 border-b pb-4'>
-                Gestão de fluxo de pessoas em ambientes de alta demanda
+        <div className='mt-14 grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-start'>
+          <div className='surface-pastel border-border/50 rounded-3xl border p-8 shadow-sm'>
+            <span className='caption mb-2 block font-bold uppercase tracking-wider text-primary'>
+              Força, Afeto & Presença
+            </span>
+            <ul className='text-foreground/90 mt-4 space-y-4 text-sm font-medium md:text-base'>
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  <strong>Acolhimento com autoridade:</strong> gentileza que
+                  cativa o cliente e firmeza que segura a operação.
+                </span>
               </li>
-              <li className='border-ink/10 border-b pb-4'>
-                Escuta ativa e resolução de conflitos com postura calma
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  <strong>Firmeza:</strong> serenidade e pulso firme para manter
+                  a ordem quando a demanda transborda.
+                </span>
               </li>
-              <li className='border-ink/10 border-b pb-4'>
-                Organização administrativa e atenção aos detalhes
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  <strong>Liderança pelo Exemplo:</strong> a humildade de quem
+                  domina o chão de fábrica e a garra de quem ensina fazendo.
+                </span>
               </li>
-              <li>Postura acolhedora e ética na linha de frente</li>
+              <li className='flex items-start gap-2.5'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  <strong>O Cuidado como Padrão:</strong> o amor dedicado no lar
+                  elevado ao nível máximo de excelência profissional.
+                </span>
+              </li>
             </ul>
           </div>
+
           <div className='rule-line'>
-            <h2>Excelência no atendimento</h2>
-            <div className='mt-6 space-y-5'>
+            <h2 className='text-2xl font-bold leading-tight text-foreground md:text-3xl'>
+              A doçura de uma mãe que cuida, a garra de uma mulher que realiza
+            </h2>
+            <div className='mt-6 space-y-4 text-base leading-relaxed text-muted-foreground'>
               <p>
-                Sou uma profissional adaptável, flexível e com muita facilidade
-                de aprendizado. Gosto de ambientes onde o contato com pessoas é
-                o centro do trabalho — é ali que consigo unir organização e
-                cuidado no atendimento.
+                Existe um pêndulo natural na minha vida: de um lado, a mãe doce,
+                atenciosa e apaixonada por reunir a família ao redor da mesa com
+                refeições feitas com afeto; do outro, a mulher guerreira,
+                autêntica e de postura firme no mercado de trabalho. Uma faceta
+                alimenta a outra.
               </p>
               <p>
-                Foram <strong>quatro anos na rede Giraffas</strong>, onde
-                desenvolvi versatilidade na rotina diária: circulei por
-                diferentes funções, aprendi a gerenciar o fluxo de clientes em
-                horários de pico e a manter a comunicação alinhada entre equipe
-                e público.
+                A mesma dedicação que coloco ao preparar cada refeição em casa é
+                a que levo para o atendimento ao cliente e para a cozinha
+                comercial. Foram{' '}
+                <strong>quatro anos de Giraffas (Extra Taboão)</strong>,
+                enfrentando picos de Black Friday, inaugurações e filas imensas.
+                Aprendi no dia a dia o valor da humildade, do respeito e da
+                união de equipe.
               </p>
               <p>
-                Hoje direciono essa bagagem para a recepção e o atendimento ao
-                cliente, onde receber bem, resolver com agilidade e manter tudo
-                organizado fazem toda a diferença.
+                Servir bem é uma vocação de carinho, mas gerenciar a linha de
+                frente exige coragem e determinação. Seja no balcão, no caixa ou
+                no comando da cozinha, entrego uma presença marcante: educada
+                com as pessoas, comprometida com o trabalho e firme diante de
+                qualquer desafio.
               </p>
             </div>
           </div>
@@ -81,46 +109,67 @@ export function PerfilTabs() {
 
       {/* Conteúdo Tab Gastronomia */}
       {activeTab === 'gastronomia' && (
-        <div className='mt-14 grid gap-14 md:grid-cols-[1.1fr_0.9fr] md:items-start'>
+        <div className='mt-14 grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:items-start'>
           <div className='rule-line md:order-1'>
-            <h2>Comida que aconchega</h2>
-            <div className='mt-6 space-y-5'>
+            <h2 className='text-2xl font-bold leading-tight text-foreground md:text-3xl'>
+              Agilidade de cozinha industrial com a dedicação da culinária feita
+              com propósito
+            </h2>
+            <div className='mt-6 space-y-4 text-base leading-relaxed text-muted-foreground'>
               <p>
-                A cozinha é um lugar de encontro. É onde a prática se transforma
-                em afeto, onde cada ingrediente carrega cuidado e onde a mesa
-                vira cenário de união. Essa é a forma que encontro de servir:
-                com presença, autenticidade e carinho.
+                Cozinhar em casa para minha família é a minha paixão e expressão
+                máxima de afeto. Levei essa mesma seriedade para a cozinha
+                comercial, transformando o ato de preparar refeições em um
+                compromisso diário com a excelência e o padrão de entrega.
               </p>
               <p>
-                Minha trajetória no setor gastronômico começou na{' '}
-                <strong>rede Giraffas</strong>, circulando por funções no salão
-                e entendendo o ritmo de um restaurante de alto movimento.
-                Depois, como{' '}
-                <strong>Auxiliar de Cozinha na Padaria Peg Pão</strong>,
-                aperfeiçoei a organização da produção, os padrões de higiene e a
-                comunicação constante com o balcão.
+                Na <strong>Pag&Pão (Unidade Gaivotas)</strong>, atuei sob a
+                pressão real de uma inauguração com o quarteirão em fila. Fui o
+                pilar operacional da cozinha, transitando com total agilidade
+                entre todas as praças: salada, chapa, cortes e montagem diária
+                do buffet e pedidos à la carte.
               </p>
               <p>
-                Seja preparando doces delicados ou pratos salgados cheios de
-                tempero, levo para a cozinha a mesma essência que levo ao
-                atendimento: a de cuidar bem das pessoas.
+                Tenho pulso firme para manter a ordem, higienização rigorosa e
+                sincronia absoluta com a equipe, garantindo pratos saborosos com
+                o aconchego do tempero caseiro sem perder o ritmo exigido por um
+                ambiente de alta rotação.
               </p>
             </div>
           </div>
-          <div className='surface-pastel rounded-3xl p-8 md:order-2'>
-            <span className='caption text-ink/60'>Paixão por Comida</span>
-            <ul className='mt-6 space-y-4 text-ink'>
-              <li className='border-ink/10 border-b pb-4'>
-                Versatilidade entre doces delicados e salgados cheios de
-                personalidade
+
+          <div className='surface-pastel border-border/50 rounded-3xl border p-8 shadow-sm md:order-2'>
+            <span className='caption mb-2 block font-bold uppercase tracking-wider text-primary'>
+              Competência Técnica & Gestão de Praça
+            </span>
+            <ul className='text-foreground/90 mt-4 space-y-4 text-sm font-medium md:text-base'>
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  Domínio pleno e rotativo de estações de produção e pré-preparo
+                </span>
               </li>
-              <li className='border-ink/10 border-b pb-4'>
-                Experiência prática em produção de padaria e restaurante
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  Raciocínio rápido e agilidade para reposições em horários de
+                  pico
+                </span>
               </li>
-              <li className='border-ink/10 border-b pb-4'>
-                Preparo com atenção à higiene, apresentação e sabor
+              <li className='border-border/60 flex items-start gap-2.5 border-b pb-3'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  Extrema disciplina com biossegurança, higienização e
+                  desperdício zero
+                </span>
               </li>
-              <li>Comida feita para reunir, aconchegar e criar memórias</li>
+              <li className='flex items-start gap-2.5'>
+                <span className='mt-2 h-2 w-2 shrink-0 rounded-full bg-primary' />
+                <span>
+                  Diversidade gastronômica com um repertório variado de pratos e
+                  técnicas
+                </span>
+              </li>
             </ul>
           </div>
         </div>
