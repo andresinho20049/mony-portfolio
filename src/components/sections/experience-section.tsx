@@ -6,9 +6,7 @@ type Experiencia = {
   pontos: string[];
   skills: string[];
   categoria:
-    | 'Atendimento & Operação'
-    | 'Gastronomia & Produção'
-    | 'Gestão de Linha de Frente';
+    'Atendimento & Operação' | 'Gastronomia & Produção' | 'Atendimento & Caixa';
   destaque?: string;
   informal?: boolean;
 };
@@ -16,65 +14,65 @@ type Experiencia = {
 const experiencias: Experiencia[] = [
   {
     periodo: '2016 — 2020',
-    cargo: 'Operadora de Caixa, Multifuncional & Instrutora',
+    cargo: 'Operadora de Caixa & Atendimento Multifuncional',
     empresa: 'Kalles Comércios (Giraffas — Hipermercado Extra Taboão)',
     categoria: 'Atendimento & Operação',
     destaque:
-      '4 anos lidando com alto fluxo e treinamento de novos contratados',
+      '4 anos lidando com alto fluxo diário e picos intensos de praça de alimentação',
     descricao:
-      'Quatro anos de intenso aprendizado em uma das praças de alimentação mais movimentadas da região. Período de grande amadurecimento encarando picos diários, horário de almoço do hipermercado, Black Friday e Aniversários da Rede e da Sede.',
+      'Quatro anos de intenso aprendizado em uma das praças de alimentação mais movimentadas da região. Vivência prática encarando com calma e agilidade picos diários no horário de almoço, Black Friday e comemorações de Aniversário da Sede.',
     pontos: [
-      'Preparação e Treinamento de Equipes: Participação ativa e atuações diretas no treinamento, acompanhamento e integração de novos colaboradores contratados.',
-      'Rotatividade e Flexibilidade Operacional: Rotação constante de funções como Operadora de Caixa, Chapeira, Cozinha e Balcão (atendimento, montagem de bandejas e sobremesas).',
-      'Gestão de Fluxo e Calma sob Pressão: Agilidade no caixa e organização conjunta com a equipe para manter a qualidade no atendimento nos dias de maior correria.',
-      'Atendimento Receptivo: Condução de situações difíceis no balcão com paciência, auxílio na organização das filas e apresentação ativa das sugestões do dia.',
+      'Operação e Agilidade no Caixa: Registros rápidos, controle de valores, recebimentos e atendimento cortês garantindo a satisfação do cliente mesmo sob forte pressão.',
+      'Rotatividade Operacional: Facilidade para atuar onde a demanda exigia, transitando entre caixa, balcão de atendimento, montagem de bandejas e apoio no preparo de pratos e sobremesas.',
+      'Resiliência em Dias Caóticos: Manutenção da organização, calma e ritmo acelerado durante picos de vendas e grandes datas promocionais de shopping.',
+      'Acolhimento e Empatia: Atendimento humanizado no balcão, orientando clientes na escolha dos pedidos e auxiliando na organização ágil das filas.',
     ],
     skills: [
-      'Operação de Caixa & Valores',
-      'Treinamento de Novos Funcionários',
+      'Operação de Caixa & Abertura/Fechamento',
       'Atendimento Receptivo ao Cliente',
-      'Resiliência sob Pressão (Black Friday)',
-      'Trabalho em Equipe',
+      'Agilidade sob Pressão (Black Friday)',
+      'Versatilidade Operacional',
+      'Trabalho em Equipe & Harmonia',
     ],
   },
   {
     periodo: '2025',
-    cargo: 'Auxiliar de Cozinha de Alta Demanda',
+    cargo: 'Auxiliar de Cozinha & Preparo Gastronômico',
     empresa: 'Padaria & Restaurante Pag&Pão (Unidade Gaivotas)',
     categoria: 'Gastronomia & Produção',
-    destaque: 'Atuação na Inauguração da Sede com filas de quarteirão',
+    destaque: 'Vivência prática na Inauguração da Sede com filas de quarteirão',
     descricao:
-      'Experiência marcante de trabalho focado na cozinha durante a inauguração do local. Responsável pela rotação entre praças e pela entrega de comida caseira de qualidade.',
+      'Experiência marcante e intensa na cozinha durante a inauguração do restaurante. Trabalho focado na agilidade das praças e no cuidado com a entrega do tempero caseiro.',
     pontos: [
-      'Domínio de Diferentes Praças: Rotação ágil entre preparação de saladas, operação de chapa, corte de carnes/insumos e montagem de pratos.',
-      'Diversidade de Cardápio: Preparo de pratos comerciais (PF, à la carte e self-service), variando entre culinária nordestina, feijoada e frutos do mar (peixe assado/frito e lula).',
-      'Agilidade em Reposição: Manutenção do padrão visual, frescor e agilidade na reposição das travessas nos horários de maior pico de clientes.',
+      'Atuação Rotativa em Praças: Preparo e organização de saladas, operação de chapa, corte de carnes e insumos e montagem caprichada dos pratos.',
+      'Variedade e Culinária Afetiva: Apoio no preparo de cardápios comerciais (PF, self-service e à la carte), incluindo feijoada, comida nordestina e frutos do mar (peixes e lula).',
+      'Ritmo e Reposição Contínua: Agilidade e olhar atento para a reposição rápida das travessas no buffet, garantindo o padrão visual e frescor durante o alto movimento.',
     ],
     skills: [
-      'Rotação de Praças na Cozinha',
-      'Culinária Caseira & Frutos do Mar',
-      'Higiene e Segurança Alimentar',
-      'Agilidade em Grandes Eventos',
+      'Preparo & Montagem de Pratos',
+      'Atuação Multipraças na Cozinha',
+      'Tempero Caseiro & Frutos do Mar',
+      'Higiene & Organização Alimentar',
     ],
   },
   {
     periodo: '2025 - 2026',
-    cargo: 'Liderança de Balcão & Gestão de Quiosque',
+    cargo: 'Operadora de Balcão, Caixa & Atendimento',
     empresa: 'Restaurante Bom Ambiente & Quiosque (Praia do Cibratel I)',
-    categoria: 'Gestão de Linha de Frente',
-    destaque: 'Responsável direta na ausência da liderança superior',
+    categoria: 'Atendimento & Caixa',
+    destaque: 'Experiência prática e autônoma de alta temporada na praia',
     descricao:
-      'Atuação prática em ambiente familiar praiano. Período em que desenvolvi forte senso de responsabilidade, assumindo o quiosque e cuidando da linha de frente.',
+      'Vivência prática e marcante em ambiente praiano de grande rotação. Período em que assumi com responsabilidade a linha de frente, garantindo o fluxo contínuo de pedidos e o bom atendimento aos clientes.',
     pontos: [
-      'Responsável pelo Local: Gestão presencial do quiosque quando a superior não estava presente, assumindo o balcão e a coordenação geral do ambiente.',
-      'Distribuição de Atividades: Organização das tarefas diárias da equipe de apoio e controle dos pedidos e comandas de mesas.',
-      'Atendimento e Fechamento de Contas: Atendimento direto aos clientes no balcão e atendimento na areia quando necessário para cobrança e fechamento de comanda.',
+      'Gerenciamento de Balcão e Caixa: Responsabilidade total pelo fechamento de comandas, cobrança e organização direta do balcão de atendimento.',
+      'Atendimento e Apoio na Areia: Atenção aos clientes do quiosque, organização dos pedidos de mesas e cobranças externas com agilidade e simpatia.',
+      'Rotina e Organização Diária: Autonomia para manter o ambiente sempre pronto, limpo e abastecido para encarar os picos do final de ano e alta temporada.',
     ],
     skills: [
-      'Liderança de Equipe Prática',
-      'Gerenciamento de Pedidos & Mesas',
-      'Cobrança & Fechamento de Contas',
-      'Proatividade e Autonomia',
+      'Gerenciamento de Balcão & Caixa',
+      'Atendimento de Alta Temporada',
+      'Abertura & Fechamento de Comandas',
+      'Autonomia e Pontualidade',
     ],
     informal: true,
   },
@@ -90,13 +88,13 @@ export function ExperienceSection() {
         <div className='mt-4 space-y-3 text-muted-foreground'>
           <p className='text-center text-lg font-medium italic tracking-tighter text-foreground'>
             "Experiência adquirida no ritmo real da linha de frente: garra para
-            encarar o alto fluxo e compromisso para liderar pelo exemplo."
+            encarar o alto fluxo e dedicação a cada atendimento."
           </p>
           <p>
-            Minha caminhada reúne a resiliência de quem trabalhou anos em praças
-            de alimentação movimentadas, a versatilidade de gerenciar rotinas de
-            cozinha e o preparo para liderar, treinar novos colegas e garantir o
-            melhor atendimento.
+            Minha caminhada reúne a resiliência de quem atuou anos em praças de
+            alimentação movimentadas, a versatilidade operacional na cozinha e a
+            agilidade prática no gerenciamento de balcão e caixa em momentos de
+            alto movimento.
           </p>
         </div>
       </div>
@@ -126,9 +124,16 @@ export function ExperienceSection() {
 
             {/* Direita: Conteúdo */}
             <div>
-              <h3 className='text-xl font-bold text-foreground transition-colors group-hover:text-primary'>
-                {exp.cargo}
-              </h3>
+              <div className='flex flex-wrap items-center gap-2'>
+                <h3 className='text-xl font-bold text-foreground transition-colors group-hover:text-primary'>
+                  {exp.cargo}
+                </h3>
+                {exp.informal && (
+                  <span className='bg-muted/60 rounded-md border border-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground'>
+                    Vivência Prática de Mercado
+                  </span>
+                )}
+              </div>
               <p className='mt-1 text-sm font-semibold text-muted-foreground'>
                 {exp.empresa}
               </p>
