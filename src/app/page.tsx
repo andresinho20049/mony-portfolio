@@ -57,7 +57,7 @@ export default function Page() {
       <section id='perfil' className='mx-auto max-w-6xl px-6 py-20 md:py-28'>
         <div className='text-center'>
           <span className='caption font-semibold uppercase tracking-wider text-primary'>
-            Resiliência, Trabalho em Equipe & Potencial de Gestão
+            Resiliência, Adaptabilidade & Talento Culinário
           </span>
           <h2 className='mx-auto mt-3 max-w-4xl text-center text-4xl font-bold tracking-wider md:text-5xl'>
             Duas vertentes, uma mesma essência: cuidar de pessoas
